@@ -11,7 +11,7 @@ require_relative 'lib/file_logger'
 
 POMODORO_SECONDS = 25 * 60
 # TODO: either move this to a env variable or a yml configuration file
-POMODORO_LOG_FILE = "#{ENV['HOME']}/Documents/pomodoro_log.txt"
+POMODORO_LOG_FILE = "#{ENV['TODO_DIR']}/pomodoro_log.txt"
 
 def logger
   PomoLogger.new(
@@ -45,6 +45,26 @@ def puts_and_exit string
   exit
 end
 
+def help
+  puts "  pomodoro todo.txt:"
+  puts "    pom (ls|log|start|add|plan) [task_number] [args]\n"
+  puts "      ls"
+  puts "         lists tasks with pomodori count and estimates"
+  puts "      log"
+  puts "         displays a log of your pomodori"
+  puts "      start ITEM#"
+  puts "         start a pomodoro timer for item ITEM#"
+  puts "      add ITEM#"
+  puts "         add one pomodoro to task on line ITEM# without running a timer"
+  puts "      plan ITEM# PLANNED_POMODORI"
+  puts "         estimate ITEM# will take PLANNED_POMODORI to complete"
+end
+
+case ARGV[0]
+when 'usage'
+  help
+  exit
+end
 
 case ARGV[1]
 when 'ls'
@@ -79,16 +99,5 @@ when 'start'
   logger.log_pomodoro_completed(task_being_worked)
   increase_pomos todos, index
 when 'help'
-  puts "Usage: todo.sh pomo action [task_number] [args]\n"
-  puts "Actions:"
-  puts "  ls"
-  puts "     lists tasks with pomodori count and estimates"
-  puts "  log"
-  puts "     displays a log of your pomodori"
-  puts "  start ITEM#"
-  puts "     start a pomodoro timer for item ITEM#"
-  puts "  add ITEM#"
-  puts "     add one pomodoro to task on line ITEM# without running a timer"
-  puts "  plan ITEM# PLANNED_POMODORI"
-  puts "     estimate ITEM# will take PLANNED_POMODORI to complete"
+  help
 end

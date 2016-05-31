@@ -1,6 +1,7 @@
 ## Pomodori-todo.txt
 
-A pomodoro counter implementation for [Todo.txt](http://todotxt.com/).
+A pomodoro counter implementation for [Todo.txt](http://todotxt.com/).  
+(this particular fork: only change is re-spacing the help message so it shows up in `t help` and `t -h` properly).
 
 ## What it features
 
