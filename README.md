@@ -1,7 +1,12 @@
 ## Pomodori-todo.txt
 
 A pomodoro counter implementation for [Todo.txt](http://todotxt.com/).  
-(this particular fork: only change is re-spacing the help message so it shows up in `t help` and `t -h` properly).
+
+Changes on this particular fork:
+
+* I merged `feature/linux-terminal-notifier` into master so that the master branch has the linux support (mac support is dead, oops)
+* Re-spacing the help message so it shows up in `t help` and `t -h` properly).
+* @todo the pomodoro log file should be created if it doesn't exist, with an empty line.
 
 ## What it features
 
